@@ -62,4 +62,14 @@ public class GroupHelper extends HelperBase{
     return wd.findElements(By.name("selected[]")).size();
   }
 
+  public void createGroup(GroupData group) {
+    initGroupCreation();
+    fillGroupForm(group);
+    submitGroupCreation();
+    returnToGroupPage();
+  }
+
+  public boolean isThereGroup() {
+    return isElementpresent(By.name("selected[]"));
+  }
 }

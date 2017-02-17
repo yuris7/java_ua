@@ -8,6 +8,9 @@ public class CroupModificationTests extends TestBase{
   @Test
   public void testModification(){
     app.getNavigationHelper().gotoGroupPage();
+    if (! app.getGroupHelper().isThereGroup()){
+      app.getGroupHelper().createGroup(new GroupData("test1", "g", "g"));
+    }
     app.getGroupHelper().selectGroup();
     app.getGroupHelper().initGroupModification();
     app.getGroupHelper().fillGroupForm(new GroupData("test1", "test2", "test3"));
